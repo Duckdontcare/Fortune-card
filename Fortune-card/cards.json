@@ -1,20 +1,20 @@
 [
     {
-        "id":1,
-        "image":"image/1f.png",
-        "image":"image/1b.png"
+        "id": 1,
+        "character": "image/1f.png",
+        "text": "image/1b.png",
+        "result": "image/back.png"
     },
-
     {
-        "id":2,
-        "image":"image/2f.png",
-        "image":"image/2b.png"
+        "id": 2,
+        "character": "image/2f.png",
+        "text": "image/2b.png",
+        "result": "image/back.png"
     },
-
     {
-        "id":3,
-        "image":"image/3f.png",
-        "image":"image/3b.png"
+        "id": 3,
+        "character": "image/3f.png",
+        "text": "image/3b.png",
+        "result": "image/back.png"
     }
-
 ]

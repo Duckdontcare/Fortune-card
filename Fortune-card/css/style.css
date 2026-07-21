@@ -1,43 +1,79 @@
-.cards{
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-display:flex;
 
-justify-content:center;
+body{
 
-gap:30px;
+    width:100%;
+    height:100vh;
 
-margin-top:100px;
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    background:#f4f4f4;
 
 }
+
+
+
+/* หน้าเลือก */
+
+.cards{
+
+    display:flex;
+
+    gap:40px;
+
+}
+
 
 .choose-card{
 
-width:180px;
+    width:220px;
 
-height:280px;
+    cursor:pointer;
 
-background:#ddd;
-
-border-radius:20px;
-
-cursor:pointer;
-
-transition:.4s;
+    transition:.3s;
 
 }
+
 
 .choose-card:hover{
 
-transform:scale(1.08);
+    transform:scale(1.08);
 
 }
 
+
+
+/* หน้าผลลัพธ์ */
+
 #result{
 
-display:none;
+    display:none;
 
-margin-top:80px;
+    justify-content:center;
 
-text-align:center;
+    align-items:center;
+
+    gap:50px;
+
+}
+
+
+
+#characterCard,
+#textCard{
+
+    width:320px;
+
+    max-height:600px;
+
+    object-fit:contain;
 
 }
