@@ -8,26 +8,67 @@
 body{
 
     width:100%;
-    height:100vh;
+    height:100%;
+
+    min-height:700px;
 
     display:flex;
-
     justify-content:center;
     align-items:center;
 
-    background:#f4f4f4;
+    overflow:hidden;
+
+}
+
+.card-wrapper{
+
+    position:relative;
 
 }
 
 
-
-/* หน้าเลือก */
+/* =====================
+   หน้าเลือกการ์ด
+===================== */
 
 .cards{
 
     display:flex;
 
     gap:40px;
+
+    animation: cardEnter 1s cubic-bezier(.17,.67,.35,1.3);
+
+}
+
+@keyframes cardEnter{
+
+
+    0%{
+
+        opacity:0;
+
+        transform:translateY(150px) scale(.8);
+
+    }
+
+
+    60%{
+
+        opacity:1;
+
+        transform:translateY(-20px) scale(1.05);
+
+    }
+
+
+    100%{
+
+        opacity:1;
+
+        transform:translateY(0) scale(1);
+
+    }
 
 }
 
@@ -40,20 +81,238 @@ body{
 
     transition:.3s;
 
+    animation:floating 4s ease-in-out infinite;
+
 }
 
+
+.choose-card:nth-child(1){
+
+    animation-delay:0s;
+
+}
+
+.choose-card:nth-child(2){
+
+    animation-delay:.5s;
+
+}
+
+.choose-card:nth-child(3){
+
+    animation-delay:1s;
+
+}
+
+/* Hover */
 
 .choose-card:hover{
 
     transform:scale(1.08);
 
+    filter:brightness(1.1);
+
+    box-shadow:
+        0 0 20px rgba(255,255,255,0.8),
+        0 0 40px rgba(255,215,0,0.6);
+
 }
 
 
 
-/* หน้าผลลัพธ์ */
+/* =====================
+   Animation ตอนกด
+===================== */
+
+
+.choose-card.clicked{
+
+    animation:pressCard .35s ease;
+
+    pointer-events:none;
+
+}
+
+
+
+@keyframes pressCard{
+
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+
+    50%{
+
+        transform:scale(.85);
+
+    }
+
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+/* การ์ดผลลัพธ์ลอยขึ้นลง */
+
+#characterCard,
+#textCard{
+
+    animation: floating 3s ease-in-out infinite;
+
+}
+
+
+/* ให้ลอยไม่พร้อมกัน */
+
+#characterCard{
+
+    animation-delay:0s;
+
+}
+
+
+#textCard{
+
+    animation-delay:1s;
+
+}
+
+
+
+@keyframes floating{
+
+
+    0%,100%{
+
+        transform:translateY(0px);
+
+    }
+
+
+    50%{
+
+        transform:translateY(-15px);
+
+    }
+
+}
+
+
+
+
+/* =====================
+   ดาว
+===================== */
+
+
+.star{
+
+    position:absolute;
+
+    font-size:30px;
+
+    pointer-events:none;
+
+    z-index:10;
+
+    animation:starFly 1s ease forwards;
+
+}
+
+
+
+@keyframes starFly{
+
+
+    0%{
+
+        opacity:1;
+
+        transform:
+        translate(0,0)
+        scale(0);
+
+    }
+
+
+    100%{
+
+        opacity:0;
+
+        transform:
+        translate(var(--x),var(--y))
+        scale(1.5);
+
+    }
+
+}
+
+
+
+
+/* =====================
+   Result Animation
+===================== */
+
+
+.show-result{
+
+
+    animation:
+    revealCard .8s cubic-bezier(.17,.67,.35,1.4);
+
+}
+
+
+
+@keyframes revealCard{
+
+
+    0%{
+
+        opacity:0;
+
+        transform:scale(1.5);
+
+    }
+
+
+    70%{
+
+        transform:scale(.9);
+
+    }
+
+
+    100%{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+
+
+/* =====================
+   ผลลัพธ์
+===================== */
+
 
 #result{
+
 
     display:none;
 
@@ -70,10 +329,55 @@ body{
 #characterCard,
 #textCard{
 
+
     width:320px;
 
     max-height:600px;
 
     object-fit:contain;
 
+}
+
+
+.sparkle{
+
+    position:absolute;
+
+    font-size:22px;
+
+    pointer-events:none;
+
+    opacity:0;
+
+    animation:sparkleMove 2s linear forwards;
+
+}
+
+@keyframes sparkleMove{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+        translate(0,0)
+        scale(.5);
+
+    }
+
+    20%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+        translate(var(--moveX),var(--moveY))
+        scale(1.3);
+
+    }
 }
