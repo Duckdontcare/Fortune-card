@@ -35,7 +35,7 @@ body{
 
 #starfield{
 
-    position:fixed;
+    position:absolute;
     top:0;
     left:0;
     width:100%;
@@ -86,7 +86,7 @@ body{
 
 #meteor-layer{
 
-    position:fixed;
+    position:absolute;
     top:0;
     left:0;
     width:100%;
