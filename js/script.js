@@ -1,4 +1,75 @@
 // =====================
+// พื้นหลังดวงดาว (สร้างครั้งเดียวตอนโหลดหน้า)
+// =====================
+const starfield = document.getElementById("starfield");
+const STAR_COUNT = 120;
+
+for (let i = 0; i < STAR_COUNT; i++) {
+    const star = document.createElement("div");
+    star.className = "star-bg";
+
+    const size = Math.random() * 2 + 1; // 1px - 3px
+    star.style.width = `${size}px`;
+    star.style.height = `${size}px`;
+
+    star.style.left = `${Math.random() * 100}%`;
+    star.style.top = `${Math.random() * 100}%`;
+
+    star.style.animationDuration = `${1.5 + Math.random() * 3}s`;
+    star.style.animationDelay = `${Math.random() * 3}s`;
+
+    starfield.appendChild(star);
+}
+
+// =====================
+// ฝนดาวตก (สุ่มสร้างดาวตกเรื่อยๆ)
+// =====================
+const meteorLayer = document.getElementById("meteor-layer");
+
+function createMeteor() {
+
+    const meteor = document.createElement("div");
+    meteor.className = "meteor";
+
+    // มุมพุ่งของดาวตก (องศา) สุ่มให้ดูเป็นธรรมชาติ
+    const angleDeg = 20 + Math.random() * 20; // 20-40 องศา
+    const angleRad = angleDeg * (Math.PI / 180);
+
+    const distance = 600 + Math.random() * 400;
+    const distX = Math.cos(angleRad) * distance;
+    const distY = Math.sin(angleRad) * distance;
+
+    meteor.style.setProperty("--angle", `${angleDeg}deg`);
+    meteor.style.setProperty("--distX", `${distX}px`);
+    meteor.style.setProperty("--distY", `${distY}px`);
+
+    // จุดเริ่มต้นสุ่มบนขอบบน/ซ้ายของจอ
+    meteor.style.left = `${Math.random() * 80}%`;
+    meteor.style.top = `${Math.random() * 30}%`;
+
+    meteor.style.transform = `rotate(${angleDeg}deg)`;
+    meteor.style.animationDuration = `${1 + Math.random() * 1.2}s`;
+
+    meteorLayer.appendChild(meteor);
+
+    setTimeout(() => {
+        meteor.remove();
+    }, 2500);
+}
+
+// สร้างดาวตกเป็นระยะแบบสุ่มช่วงเวลา
+function scheduleMeteor() {
+    const delay = 800 + Math.random() * 2500; // 0.8 - 3.3 วินาที
+    setTimeout(() => {
+        createMeteor();
+        scheduleMeteor();
+    }, delay);
+}
+
+scheduleMeteor();
+
+
+// =====================
 // โหลดข้อมูลการ์ดจาก cards.json
 // =====================
 let cardsData = [];

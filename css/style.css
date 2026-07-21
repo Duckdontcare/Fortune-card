@@ -5,10 +5,14 @@
 }
 
 
-body{
+html, body{
 
     width:100%;
     height:100%;
+
+}
+
+body{
 
     min-height:700px;
 
@@ -17,6 +21,168 @@ body{
     align-items:center;
 
     overflow:hidden;
+
+    position:relative;
+
+    background: radial-gradient(ellipse at bottom, #1b1240 0%, #05040f 100%);
+
+}
+
+
+/* =====================
+   พื้นหลังดวงดาว
+===================== */
+
+#starfield{
+
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    z-index:0;
+
+    pointer-events:none;
+
+}
+
+.star-bg{
+
+    position:absolute;
+
+    background:#fff;
+
+    border-radius:50%;
+
+    animation: twinkle ease-in-out infinite;
+
+}
+
+@keyframes twinkle{
+
+    0%,100%{
+
+        opacity:.2;
+
+        transform:scale(.8);
+
+    }
+
+    50%{
+
+        opacity:1;
+
+        transform:scale(1.2);
+
+    }
+
+}
+
+
+/* =====================
+   ดาวตก (ฝนดาวตก)
+===================== */
+
+#meteor-layer{
+
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    z-index:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+}
+
+.meteor{
+
+    position:absolute;
+
+    width:120px;
+    height:2px;
+
+    background:linear-gradient(90deg, #fff, rgba(255,255,255,0));
+
+    border-radius:50%;
+
+    opacity:0;
+
+    animation: meteorFall linear forwards;
+
+}
+
+.meteor::before{
+
+    content:"";
+
+    position:absolute;
+
+    right:0;
+
+    top:50%;
+
+    width:6px;
+    height:6px;
+
+    background:#fff;
+
+    border-radius:50%;
+
+    transform:translateY(-50%);
+
+    box-shadow:
+        0 0 8px 2px rgba(255,255,255,.9),
+        0 0 16px 4px rgba(150,180,255,.6);
+
+}
+
+@keyframes meteorFall{
+
+    0%{
+
+        opacity:0;
+
+        transform: translate(0,0) rotate(var(--angle));
+
+    }
+
+    10%{
+
+        opacity:1;
+
+    }
+
+    80%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform: translate(var(--distX), var(--distY)) rotate(var(--angle));
+
+    }
+
+}
+
+
+/* ให้เนื้อหาหลักลอยอยู่เหนือพื้นหลัง */
+
+.cards,
+#result{
+
+    position:relative;
+
+    z-index:1;
 
 }
 
