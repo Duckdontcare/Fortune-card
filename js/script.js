@@ -125,6 +125,47 @@ function showResult() {
 }
 
 // =====================
+// ขยายการ์ดผลลัพธ์ (Lightbox)
+// =====================
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const lightboxClose = document.getElementById("lightboxClose");
+
+[characterCard, textCard].forEach(img => {
+    img.addEventListener("click", (e) => {
+        e.stopPropagation();
+        openLightbox(img.src);
+    });
+});
+
+function openLightbox(src) {
+    lightboxImg.src = src;
+    lightbox.classList.add("show");
+}
+
+function closeLightbox() {
+    lightbox.classList.remove("show");
+}
+
+// ปุ่มปิด
+lightboxClose.addEventListener("click", closeLightbox);
+
+// คลิกพื้นที่มืดรอบนอก (นอกรูป) เพื่อปิด
+lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+        closeLightbox();
+    }
+});
+
+// กด Esc เพื่อปิดด้วย
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        closeLightbox();
+    }
+});
+
+
+// =====================
 // ดาววิ่งรอบการ์ด (sparkle)
 // =====================
 const wrappers = document.querySelectorAll(".card-wrapper");

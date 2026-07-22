@@ -482,11 +482,54 @@ body{
 
     display:none;
 
+    flex-direction:column;
+
     justify-content:center;
 
     align-items:center;
 
+    gap:20px;
+
+}
+
+.result-cards-row{
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
     gap:50px;
+
+}
+
+#zoomHint{
+
+    color:rgba(255,255,255,0.75);
+
+    font-size:14px;
+
+    letter-spacing:.4px;
+
+    text-align:center;
+
+    animation: hintFade 2.5s ease-in-out infinite;
+
+}
+
+@keyframes hintFade{
+
+    0%,100%{
+
+        opacity:.55;
+
+    }
+
+    50%{
+
+        opacity:1;
+
+    }
 
 }
 
@@ -501,6 +544,182 @@ body{
     max-height:600px;
 
     object-fit:contain;
+
+    position:relative;
+
+    z-index:1;
+
+    cursor:pointer;
+
+}
+
+
+/* =====================
+   Lightbox ขยายการ์ด
+===================== */
+
+#lightbox{
+
+    display:none;
+
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,0.8);
+
+    z-index:50;
+
+    justify-content:center;
+    align-items:center;
+
+}
+
+#lightbox.show{
+
+    display:flex;
+
+    animation: lightboxFade .25s ease;
+
+}
+
+@keyframes lightboxFade{
+
+    from{ opacity:0; }
+
+    to{ opacity:1; }
+
+}
+
+#lightboxImg{
+
+    max-width:85%;
+    max-height:85%;
+
+    object-fit:contain;
+
+    cursor:default;
+
+    animation: lightboxPop .3s cubic-bezier(.17,.67,.35,1.4);
+
+}
+
+@keyframes lightboxPop{
+
+    0%{
+
+        opacity:0;
+
+        transform:scale(.7);
+
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+#lightboxClose{
+
+    position:absolute;
+
+    top:24px;
+    right:32px;
+
+    width:44px;
+    height:44px;
+
+    border:none;
+    border-radius:50%;
+
+    background:rgba(255,255,255,0.12);
+
+    color:#fff;
+
+    font-size:26px;
+    line-height:1;
+
+    cursor:pointer;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    transition:.2s;
+
+}
+
+#lightboxClose:hover{
+
+    background:rgba(255,255,255,0.25);
+
+}
+
+
+/* =====================
+   แสงเรืองรัศมีหลังการ์ด (สายศักดิ์สิทธิ์)
+===================== */
+
+.result-card-wrapper{
+
+    position:relative;
+
+    z-index:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.result-card-wrapper::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:150%;
+    height:150%;
+
+    background: radial-gradient(circle,
+        rgba(255,221,140,0.65) 0%,
+        rgba(255,200,110,0.3) 35%,
+        rgba(255,200,110,0) 70%);
+
+    filter: blur(6px);
+
+    z-index:-1;
+
+    animation: glowPulse 2.8s ease-in-out infinite;
+
+}
+
+@keyframes glowPulse{
+
+    0%,100%{
+
+        opacity:.55;
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        opacity:1;
+
+        transform:scale(1.18);
+
+    }
 
 }
 

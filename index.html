@@ -39,10 +39,27 @@
     <!-- ผลลัพธ์ -->
     <div id="result">
 
-        <img id="characterCard">
+        <div class="result-cards-row">
 
-        <img id="textCard">
+            <div class="result-card-wrapper">
+                <img id="characterCard">
+            </div>
 
+            <div class="result-card-wrapper">
+                <img id="textCard">
+            </div>
+
+        </div>
+
+        <p id="zoomHint">🔍 คลิกที่การ์ดเพื่อขยายได้</p>
+
+    </div>
+
+
+    <!-- ขยายการ์ด (Lightbox) -->
+    <div id="lightbox">
+        <button id="lightboxClose" aria-label="ปิด">&times;</button>
+        <img id="lightboxImg" src="" alt="">
     </div>
 
 

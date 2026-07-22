@@ -1,20 +1,149 @@
 [
     {
         "id": 1,
-        "character": "image/1f.png",
-        "text": "image/1b.png",
+        "character": "image/TRUSTED-EGYPT-GOD/1f.png",
+        "text": "image/TRUSTED-EGYPT-GOD/1b.png",
         "result": "image/back.png"
     },
+
     {
         "id": 2,
-        "character": "image/2f.png",
-        "text": "image/2b.png",
+        "character": "image/TRUSTED-EGYPT-GOD/2f.png",
+        "text": "image/TRUSTED-EGYPT-GOD/2b.png",
         "result": "image/back.png"
     },
+
     {
         "id": 3,
-        "character": "image/3f.png",
-        "text": "image/3b.png",
+        "character": "image/TRUSTED-EGYPT-GOD/3f.png",
+        "text": "image/TRUSTED-EGYPT-GOD/3b.png",
+        "result": "image/back.png"
+    },
+    
+    {
+        "id": 4,
+        "character": "image/TRUSTED-EGYPT-GOD/4f.png",
+        "text": "image/TRUSTED-EGYPT-GOD/4b.png",
+        "result": "image/back.png"
+    },
+
+    {
+        "id": 5,
+        "character": "image/TRUSTED-EGYPT-GOD/5f.png",
+        "text": "image/TRUSTED-EGYPT-GOD/5b.png",
+        "result": "image/back.png"
+    },
+
+    {
+        "id": 6,
+        "character": "image/TRUSTED-EGYPT-GOD/6f.png",
+        "text": "image/TRUSTED-EGYPT-GOD/6b.png",
+        "result": "image/back.png"
+    },
+
+    {
+        "id": 7,
+        "character": "image/TRUSTED-EGYPT-GOD/7f.png",
+        "text": "image/TRUSTED-EGYPT-GOD/7b.png",
+        "result": "image/back.png"
+    },
+
+    {
+        "id": 8,
+        "character": "image/TRUSTED-GREEK-GOD/1f.png",
+        "text": "image/TRUSTED-GREEK-GOD/1b.png",
+        "result": "image/back.png"
+    },
+
+    {
+        "id": 9,
+        "character": "image/TRUSTED-GREEK-GOD/2f.png",
+        "text": "image/TRUSTED-GREEK-GOD/2b.png",
+        "result": "image/back.png"
+    },
+
+    {
+        "id": 10,
+        "character": "image/TRUSTED-GREEK-GOD/3f.png",
+        "text": "image/TRUSTED-GREEK-GOD/3b.png",
+        "result": "image/back.png"
+    },
+
+    {
+        "id": 11,
+        "character": "image/TRUSTED-GREEK-GOD/4f.png",
+        "text": "image/TRUSTED-GREEK-GOD/4b.png",
+        "result": "image/back.png"
+    },
+
+    {
+        "id": 12,
+        "character": "image/TRUSTED-GREEK-GOD/5f.png",
+        "text": "image/TRUSTED-GREEK-GOD/5b.png",
+        "result": "image/back.png"
+    },
+
+    {
+        "id": 13,
+        "character": "image/TRUSTED-GREEK-GOD/6f.png",
+        "text": "image/TRUSTED-GREEK-GOD/6b.png",
+        "result": "image/back.png"
+    },
+
+    {
+        "id": 14,
+        "character": "image/TRUSTED-GREEK-GOD/7f.png",
+        "text": "image/TRUSTED-GREEK-GOD/7b.png",
+        "result": "image/back.png"
+    },
+
+    {
+        "id": 15,
+        "character": "image/TRUSTED-NORSE-GOD/1f.png",
+        "text": "image/TRUSTED-NORSE-GOD/1b.png",
+        "result": "image/back.png"
+    },
+
+    {
+        "id": 16,
+        "character": "image/TRUSTED-NORSE-GOD/2f.png",
+        "text": "image/TRUSTED-NORSE-GOD/2b.png",
+        "result": "image/back.png"
+    },
+
+    {
+        "id": 17,
+        "character": "image/TRUSTED-NORSE-GOD/3f.png",
+        "text": "image/TRUSTED-NORSE-GOD/3b.png",
+        "result": "image/back.png"
+    },
+
+    {
+        "id": 18,
+        "character": "image/TRUSTED-NORSE-GOD/4f.png",
+        "text": "image/TRUSTED-NORSE-GOD/4b.png",
+        "result": "image/back.png"
+    },
+
+    {
+        "id": 19,
+        "character": "image/TRUSTED-NORSE-GOD/5f.png",
+        "text": "image/TRUSTED-NORSE-GOD/5b.png",
+        "result": "image/back.png"
+    },
+
+    {
+        "id": 20,
+        "character": "image/TRUSTED-NORSE-GOD/6f.png",
+        "text": "image/TRUSTED-NORSE-GOD/6b.png",
+        "result": "image/back.png"
+    },
+
+    {
+        "id": 21,
+        "character": "image/TRUSTED-NORSE-GOD/7f.png",
+        "text": "image/TRUSTED-NORSE-GOD/7b.png",
         "result": "image/back.png"
     }
 ]
+
