@@ -122,6 +122,18 @@ function showResult() {
     cardsContainer.style.display = "none";
     resultBox.style.display = "flex";
     resultBox.classList.add("show-result");
+
+    // เปลี่ยนข้อความด้านบนเป็นคำทำนาย
+    const greetingEl = document.getElementById("greetingText");
+    const subEl = document.querySelector(".header-sub");
+
+    if (greetingEl) {
+        greetingEl.textContent = "คำทำนายของคุณวันนี้คือ!";
+    }
+
+    if (subEl) {
+        subEl.textContent = "อนาคตของคุณถูกกำหนดด้วยการกระทำในปัจจุบัน ไม่ใช่คำทำนาย";
+    }
 }
 
 // =====================

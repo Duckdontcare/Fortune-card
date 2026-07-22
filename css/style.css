@@ -17,8 +17,13 @@ body{
     min-height:700px;
 
     display:flex;
-    justify-content:center;
+
+    flex-direction:column;
+
+    justify-content:flex-start;
     align-items:center;
+
+    padding-top:70px;
 
     overflow:hidden;
 
@@ -183,6 +188,63 @@ body{
     position:relative;
 
     z-index:1;
+
+}
+
+
+/* =====================
+   ส่วนหัว: วันที่ + คำทักทาย
+===================== */
+
+#header-info{
+
+    position:relative;
+
+    z-index:2;
+
+    text-align:center;
+
+    pointer-events:none;
+
+    width:90%;
+
+    max-width:600px;
+
+    margin-bottom:40px;
+
+}
+
+#todayDate{
+
+    font-size:14px;
+
+    color:rgba(255,255,255,0.7);
+
+    letter-spacing:.5px;
+
+    margin-bottom:8px;
+
+}
+
+#greetingText{
+
+    font-size:26px;
+
+    font-weight:700;
+
+    color:#ffd97a;
+
+    text-shadow:0 0 14px rgba(255,217,122,0.55);
+
+    margin-bottom:8px;
+
+}
+
+.header-sub{
+
+    font-size:15px;
+
+    color:rgba(255,255,255,0.85);
 
 }
 
