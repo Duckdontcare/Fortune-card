@@ -82,6 +82,48 @@ fetch("cards.json")
     .catch(err => console.error("โหลด cards.json ไม่สำเร็จ:", err));
 
 // =====================
+// Blur-up: ภาพเบลอจางๆ ก่อน แล้วค่อยชัด
+// =====================
+
+// เตรียม element รูป ให้มีสถานะเบลอตอนเริ่มต้น แล้วค่อยเปลี่ยนเป็นชัดตอนโหลดเสร็จ
+function setupBlurUp(img) {
+
+    img.classList.add("img-blur-load");
+
+    img.addEventListener("load", () => {
+        img.classList.add("is-loaded");
+    });
+
+    // เผื่อกรณีรูปโหลดเสร็จไปแล้วก่อนที่ event listener จะถูกผูก (มาจาก cache)
+    if (img.complete && img.naturalWidth > 0) {
+        img.classList.add("is-loaded");
+    }
+}
+
+// สำหรับรูปที่เปลี่ยน src แบบ dynamic (การ์ดผลลัพธ์, lightbox)
+// ต้องรีเซ็ตกลับไปเป็นเบลอก่อน แล้วค่อยชัดใหม่ทุกครั้งที่เปลี่ยนรูป
+function setImageWithBlur(imgEl, src) {
+
+    imgEl.classList.remove("is-loaded");
+    imgEl.classList.add("img-blur-load");
+
+    imgEl.onload = () => {
+        imgEl.classList.add("is-loaded");
+    };
+
+    imgEl.src = src;
+
+    // เผื่อรูปมาจาก cache แล้วโหลดเสร็จทันที (event load อาจไม่ยิงซ้ำ)
+    if (imgEl.complete && imgEl.naturalWidth > 0) {
+        imgEl.classList.add("is-loaded");
+    }
+}
+
+// ใช้กับการ์ดใบเลือกตอนแรก (โหลดมาพร้อมหน้าเว็บ)
+document.querySelectorAll(".choose-card").forEach(setupBlurUp);
+
+
+// =====================
 // ดักคลิกการ์ด
 // =====================
 const chooseCards = document.querySelectorAll(".choose-card");
@@ -115,8 +157,8 @@ function showResult() {
     const randomIndex = Math.floor(Math.random() * cardsData.length);
     const picked = cardsData[randomIndex];
 
-    characterCard.src = picked.character;
-    textCard.src = picked.text;
+    setImageWithBlur(characterCard, picked.character);
+    setImageWithBlur(textCard, picked.text);
 
     // ซ่อนการ์ดที่เลือก แสดงผลลัพธ์
     cardsContainer.style.display = "none";
@@ -151,7 +193,7 @@ const lightboxClose = document.getElementById("lightboxClose");
 });
 
 function openLightbox(src) {
-    lightboxImg.src = src;
+    setImageWithBlur(lightboxImg, src);
     lightbox.classList.add("show");
 }
 

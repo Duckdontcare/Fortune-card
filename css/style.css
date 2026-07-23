@@ -256,8 +256,30 @@ body{
 
 
 /* =====================
-   หน้าเลือกการ์ด
+   Blur-up: ภาพเบลอจางๆ ก่อน แล้วค่อยชัด
 ===================== */
+
+.img-blur-load{
+
+    filter: blur(18px);
+
+    opacity: 0;
+
+    transform: scale(1.04);
+
+    transition: filter .6s ease, opacity .6s ease, transform .6s ease;
+
+}
+
+.img-blur-load.is-loaded{
+
+    filter: blur(0);
+
+    opacity: 1;
+
+    transform: scale(1);
+
+}
 
 .cards{
 
